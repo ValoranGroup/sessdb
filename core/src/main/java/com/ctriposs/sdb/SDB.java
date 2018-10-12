@@ -297,7 +297,9 @@ public class SDB implements Closeable {
 					if (lq0 != null && lq0.size() > 0) {
 						for(AbstractMapTable table : lq0) {
 							result = table.get(key);
-							if (result.isFound()) break;
+							if (result.isFound()) {
+								break;
+							}
 						}
 					}
 				} finally {
@@ -325,7 +327,9 @@ public class SDB implements Closeable {
 							if (lq.size() > 0) {
 								for(AbstractMapTable table : lq) {
 									result = table.get(key);
-									if (result.isFound()) break searchLevel12;
+									if (result.isFound()) {
+										break searchLevel12;
+									}
 								}
 							}
 						} finally {
@@ -358,7 +362,9 @@ public class SDB implements Closeable {
 
 	@Override
 	public void close() throws IOException {
-		if (closed) return;
+		if (closed) {
+			return;
+		}
 
 		fileStatsCollector.setStop();
 
